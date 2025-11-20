@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-// Reusable pagination hook
+
 function usePagination(data = [], itemsPerPage = 5) {
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -17,7 +17,7 @@ function usePagination(data = [], itemsPerPage = 5) {
     }
   };
 
-  // Reset page when data / itemsPerPage changes
+ 
   React.useEffect(() => {
     setCurrentPage(1);
   }, [data, itemsPerPage]);
@@ -30,11 +30,11 @@ function usePagination(data = [], itemsPerPage = 5) {
   };
 }
 
-// Reusable Pagination component
+
 function Pagination({ currentPage, totalPages, onPageChange }) {
   if (totalPages <= 1) return null;
 
-  // Only show up to 5 page buttons at a time
+  
   const getPageNumbers = () => {
     let start = Math.max(1, currentPage - 2);
     let end = Math.min(totalPages, start + 4);
@@ -77,7 +77,7 @@ function App() {
   const [data, setData] = useState([]);
   const [itemsPerPage, setItemsPerPage] = useState(5);
 
-  // Use a public API endpoint for demonstration
+ 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((res) => res.json())
